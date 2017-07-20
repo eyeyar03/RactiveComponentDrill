@@ -8,7 +8,7 @@ RactiveLoad
    
    Problem:
 
-     ```
+    
     Uncaught TypeError: e.Promise is not a constructor
     at ractive-load.min.js:1
     at m (ractive-load.min.js:1)
