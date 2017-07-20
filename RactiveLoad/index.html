@@ -2,11 +2,10 @@
 <head><title>Ractive component demo</title></head>
 <body>
   <main><!-- the component will be rendered here --></main>
-  <script src='/js/plugins/ractive.js'></script>
-  <script src='/js/plugins/ractive-load.min.js'></script>
+  <script src='js/plugins/ractive.js'></script>
+  <script src='js/plugins/ractive-load.min.js'></script>
   <script>
     var ractive;
-
     Ractive.load( 'hello-world.html' ).then( function ( HelloWorld ) {
       ractive = new HelloWorld({
         el: 'main',
