@@ -1,1 +1,1 @@
-# Ractive Component on Behavior (Expirement)
+# Ractive Component on Behavior (Experiment)
