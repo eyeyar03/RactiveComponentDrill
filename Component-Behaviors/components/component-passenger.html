@@ -1,0 +1,53 @@
+{{#each contentA.passengers}}
+    {{#name}}
+        <div>Passenger Name: {{lastName}}, {{firstName}}</div>
+    {{/name}}
+
+    <span>Contact Numbers</span>
+    <ul>
+        {{#contactNumbers}}
+            <li>{{number}} ({{type}})</li>
+        {{/contactNumbers}}
+    </ul>
+{{/each}}
+
+<input type="text" name="firstName" value="{{firstName}}" placeholder="Enter First Name"/>
+<input type="text" name="lastName" value="{{lastName}}" placeholder="Enter last Name"/>
+<input type="text" name="contactNumber" value="{{contactNumber}}" placeholder="Enter Contact Number"/>
+<input type="text" name="contactType" value="{{contactType}}" placeholder="Enter Contact Type"/>
+<input type="submit" value="Add Passenger" on-click="addPassenger()"/>
+
+<script>
+    component.exports = {
+        addPassenger: function() {
+            var _this = this;
+
+            var firstName = _this.get('firstName');
+            var lastName = _this.get('lastName');
+            var contactNumber = _this.get('contactNumber');
+            var contactType = _this.get('contactType');
+
+            //only add when details provided are complete
+            if(firstName && lastName && contactNumber && contactType) {
+                var passenger = {
+                    name: {
+                        firstName: _this.get('firstName'),
+                        lastName: _this.get('lastName')
+                    },
+                    contactNumbers: [{
+                        number: _this.get('contactNumber'),
+                        type: _this.get('contactType')
+                    }]
+                }
+
+                _this.push('contentA.passengers', passenger);
+
+                //empty field after adding the passenger
+                _this.set('firstName', '');
+                _this.set('lastName', '');
+                _this.set('contactNumber', '');
+                _this.set('contactType', '');
+            }
+        }
+    }
+</script>

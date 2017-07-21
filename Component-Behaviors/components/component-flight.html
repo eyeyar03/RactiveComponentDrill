@@ -1,0 +1,45 @@
+<style>
+    .status.Cancelled {
+        color: red;
+    }
+
+    .status.Booked {
+        color: green;
+    }
+</style>
+
+{{#with content.trip}}
+    <div>
+        <span>{{origin.country}} > {{destination.country}}</span><br/>
+        <span>{{airline.code}} {{flightNumber}}</span><br/>
+        <span>Departure: {{departure}}</span><br/>
+        <span>Arrival: {{arrival}}</span>
+
+    </div>
+
+    <p class="status {{status}}">Flight Status: {{status}}</p>
+    <button on-click="changeStatus('on-click')">{{buttonValue}}</button>
+{{/with}}
+
+<script>
+    component.exports = {
+        onrender: function() {
+            console.log('initing component');
+            this.changeStatus('onrender');
+        },
+        changeStatus: function(origin) {
+            console.log('trigger from: ' + origin);
+            var _this = this;
+            var isBooked = _this.get('content.trip.status') === 'Booked' ? true : false;
+
+            if(isBooked) {
+                _this.set('content.trip.status', 'Cancelled');
+                _this.set('content.trip.buttonValue', 'Book');
+            
+            } else {
+                _this.set('content.trip.status', 'Booked');
+                _this.set('content.trip.buttonValue', 'Cancel');
+            }
+        }
+    }
+</script>
