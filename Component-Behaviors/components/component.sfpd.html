@@ -1,0 +1,28 @@
+<style>
+    h2 {
+        color: green;
+    }
+</style>
+
+
+<h2>SFPD</h2>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Passenger</th>
+            <th>Redress Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each content.passengers}}
+        <tr>
+            {{#name}}
+                <td>{{lastName}}, {{firstName}}</td>
+            {{/name}}
+            <td>
+                {{redressNumber}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+</table>

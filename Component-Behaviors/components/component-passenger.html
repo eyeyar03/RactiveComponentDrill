@@ -1,3 +1,5 @@
+<link rel="ractive" href="component.sfpd.html" name="sfpd" >
+
 {{#each contentA.passengers}}
     {{#name}}
         <div>Passenger Name: {{lastName}}, {{firstName}}</div>
@@ -16,6 +18,8 @@
 <input type="text" name="contactNumber" value="{{contactNumber}}" placeholder="Enter Contact Number"/>
 <input type="text" name="contactType" value="{{contactType}}" placeholder="Enter Contact Type"/>
 <input type="submit" value="Add Passenger" on-click="addPassenger()"/>
+
+<sfpd/>
 
 <script>
     component.exports = {

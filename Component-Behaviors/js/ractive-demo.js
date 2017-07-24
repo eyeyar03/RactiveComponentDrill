@@ -91,7 +91,8 @@ function mockData(type) {
                                 number: '52345265',
                                 type: 'Office'
                             }
-                        ]
+                        ],
+                        redressNumber: "534345"
                     },
                     {
                         name: {
@@ -107,7 +108,8 @@ function mockData(type) {
                                 number: '98765432',
                                 type: 'Mobile'
                             }
-                        ]
+                        ],
+                        redressNumber: "534345"
                     }  
                 ]
             }   
